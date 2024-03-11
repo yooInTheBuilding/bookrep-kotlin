@@ -1,9 +1,11 @@
 package com.demo.bookrepkotlin.dao
 
 import com.demo.bookrepkotlin.dto.UserDTO
+import org.apache.ibatis.annotations.Mapper
 import org.apache.ibatis.annotations.Select
+import org.springframework.stereotype.Repository
 
-
+@Mapper
 interface UserDao {
     @Select("SELECT count(*) FROM user")
     fun getUserCnt(): Int

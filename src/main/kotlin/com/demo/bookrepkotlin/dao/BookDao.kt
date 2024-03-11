@@ -1,8 +1,10 @@
 package com.demo.bookrepkotlin.dao
 
 import com.demo.bookrepkotlin.dto.BookDTO
+import org.apache.ibatis.annotations.Mapper
+import org.springframework.stereotype.Repository
 
-
+@Mapper
 interface BookDao {
     fun getBookList(keyword: String?): List<BookDTO?>?
 

@@ -1,8 +1,10 @@
 package com.demo.bookrepkotlin.dao
 
 import com.demo.bookrepkotlin.dto.ReportDTO
+import org.apache.ibatis.annotations.Mapper
+import org.springframework.stereotype.Repository
 
-
+@Mapper
 interface ReportDao {
     fun setReport(reportDTO: ReportDTO?)
 
