@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.demo.bookrepkotlin.dao.BookmarkDao">
+    <select id="isBookmark" parameterType="com.demo.bookrepkotlin.dto.BookmarkDTO" resultType="java.lang.Integer">
+        SELECT count(*)
+        FROM bookmark
+        WHERE bookmark_user_email = #{userEmail}
+          AND bookmark_book_isbn = #{bookIsbn}
+    </select>
+    <insert id="setBookmark" parameterType="com.demo.bookrepkotlin.dto.BookmarkDTO">
+        INSERT bookmark (bookmark_user_email, bookmark_book_isbn) VALUES (#{userEmail}, #{bookIsbn})
+    </insert>
+    <delete id="removeBookmark" parameterType="com.demo.bookrepkotlin.dto.BookmarkDTO">
+        DELETE FROM bookmark
+        WHERE bookmark_user_email = #{userEmail}
+          AND bookmark_book_isbn = #{bookIsbn}
+    </delete>
+</mapper>
